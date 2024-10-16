@@ -1,15 +1,24 @@
 // If you want to override variables do it here
-@import "variables";
+@import 'variables';
 
 // Import styles
-@import "@coreui/coreui/scss/coreui";
-@import "@coreui/chartjs/scss/coreui-chartjs";
+@import '@coreui/coreui/scss/coreui';
+@import '@coreui/chartjs/scss/coreui-chartjs';
 
 // Vendors
-@import "vendors/simplebar";
+@import 'vendors/simplebar';
 
 // Custom styles for this theme
-@import "theme";
+@import 'theme';
 
 // If you want to add custom CSS you can put it here
-@import "custom";
+@import 'custom';
+.sidebar {
+  // Custom styles for sidebar
+  background-color: #f8f9fa; // Example of setting a background
+}
+
+.sidebar-brand-full img {
+  max-height: 40px; // Adjust the logo height
+  max-width: 100%; // Ensure it doesn't exceed the container's width
+}

@@ -1,6 +1,5 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-
 import {
   CCloseButton,
   CSidebar,
@@ -9,11 +8,11 @@ import {
   CSidebarHeader,
   CSidebarToggler,
 } from '@coreui/react'
-
-import { AppSidebarNav } from './AppSidebarNav'
-
-// sidebar nav config
+import { AppSidebarNav } from './AppSidebarNav' // sidebar nav config
 import navigation from '../_nav'
+
+// Import the logo
+import logo from '../assets/images/avatars/logo.png' // Adjust the path as necessary
 
 const AppSidebar = () => {
   const dispatch = useDispatch()
@@ -32,9 +31,9 @@ const AppSidebar = () => {
     >
       <CSidebarHeader className="border-bottom">
         <CSidebarBrand to="/">
-          {/* <CIcon customClassName="sidebar-brand-full" icon={logo} height={32} />
-          <CIcon customClassName="sidebar-brand-narrow" icon={sygnet} height={32} /> */}
+          <img src={logo} alt="Logo" height={32} width={150} style={{ objectFit: 'contain' }} />
         </CSidebarBrand>
+
         <CCloseButton
           className="d-lg-none"
           dark
