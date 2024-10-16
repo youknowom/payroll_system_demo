@@ -1,19 +1,41 @@
 import React from 'react'
-import { Person, Clock, CardChecklist, Wallet } from 'react-bootstrap-icons'
-import { CNavGroup, CNavItem, CNavTitle } from '@coreui/react'
+import {
+  Person,
+  Clock,
+  CardChecklist,
+  Wallet,
+  Pencil,
+  Eye,
+  Speedometer,
+} from 'react-bootstrap-icons'
+import { CNavGroup, CNavItem } from '@coreui/react'
 
 const _nav = [
   {
     component: CNavItem,
     name: 'Dashboard',
     to: '/dashboard',
-    icon: <Person className="nav-icon" />,
+    icon: <Speedometer className="nav-icon" />,
   },
   {
-    component: CNavItem,
+    component: CNavGroup,
     name: 'Employees',
     to: '/employees',
     icon: <Person className="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'View Employees',
+        to: '/employees',
+        icon: <Eye className="nav-icon" />,
+      },
+      {
+        component: CNavItem,
+        name: 'Add Employee',
+        to: '/employees/add',
+        icon: <Pencil className="nav-icon" />,
+      },
+    ],
   },
   {
     component: CNavItem,
@@ -21,7 +43,6 @@ const _nav = [
     to: '/attendance',
     icon: <CardChecklist className="nav-icon" />,
   },
-
   {
     component: CNavItem,
     name: 'Timeclock',
@@ -34,38 +55,6 @@ const _nav = [
     to: '/payroll',
     icon: <Wallet className="nav-icon" />,
   },
-
-  // {
-  //   component: CNavTitle,
-  //   name: 'Extras',
-  // },
-  // {
-  //   component: CNavGroup,
-  //   name: 'Pages',
-  //   icon: <CIcon icon={cilStar} customClassName="nav-icon" />,
-  //   items: [
-  //     {
-  //       component: CNavItem,
-  //       name: 'Login',
-  //       to: '/login',
-  //     },
-  //     {
-  //       component: CNavItem,
-  //       name: 'Register',
-  //       to: '/register',
-  //     },
-  //     {
-  //       component: CNavItem,
-  //       name: 'Error 404',
-  //       to: '/404',
-  //     },
-  //     {
-  //       component: CNavItem,
-  //       name: 'Error 500',
-  //       to: '/500',
-  //     },
-  //   ],
-  // },
 ]
 
 export default _nav

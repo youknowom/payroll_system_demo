@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
+import './employees.css'
 // import axios from 'axios'
 import { Link } from 'react-router-dom'
-// import "./studenttable.css";
 
 const API_URL = 'http://localhost:8080/student'
 
@@ -28,7 +28,6 @@ const Employees = () => {
 
   const handleDelete = async (id) => {
     try {
-      // await axios.delete(`${API_URL}/delete/${id}`)
       fetchStudent()
     } catch (error) {
       alert('Error deleting student')
@@ -36,13 +35,6 @@ const Employees = () => {
     }
   }
 
-  // const filteredStudent = student.filter(
-  //   (student) =>
-  //     student.fname.toLowerCase().includes(searchTerm.toLowerCase()) ||
-  //     student.lname.toLowerCase().includes(searchTerm.toLowerCase()) ||
-  //     student.course.toLowerCase().includes(searchTerm.toLowerCase()) ||
-  //     student.email.toLowerCase().includes(searchTerm.toLowerCase())
-  // );
   const filteredStudent = student.filter(
     (student) =>
       student.fname?.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -50,30 +42,26 @@ const Employees = () => {
       student.course?.toLowerCase().includes(searchTerm.toLowerCase()) ||
       student.email?.toLowerCase().includes(searchTerm.toLowerCase()),
   )
+
   return (
     <div className="main">
-      <h2>Student Registration Form</h2>
-      <p>
-        Fill out the form to apply for the training courses. You can consider your application
-        accepted after you receive a confirmation email.
-      </p>
-      <h2>Student Information</h2>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          marginBottom: '10px',
-        }}
-      >
+      <div className="header-container">
+        <h2>Employees</h2>
+        <Link to="/add">
+          <button className="button-link">Add Employee</button>
+        </Link>
+      </div>
+
+      <div className="search-container">
         <input
           type="text"
           placeholder="Search..."
           value={searchTerm}
           onChange={handleSearchChange}
         />
-        <Link to="/add">Add Students</Link>
       </div>
-      <table border="1" cellPadding="10">
+
+      <table className="custom-table">
         <thead>
           <tr>
             <th>First Name</th>
@@ -90,10 +78,13 @@ const Employees = () => {
               <td>{student.lname}</td>
               <td>{student.email}</td>
               <td>{student.contact}</td>
-              <td>{student.course}</td>
               <td>
-                <Link to={`/update/${student._id}`}>Update</Link>
-                <button onClick={() => handleDelete(student._id)}>Delete</button>
+                <Link to={`/update/${student._id}`} className="update-link">
+                  Update
+                </Link>
+                <button className="delete-btn" onClick={() => handleDelete(student._id)}>
+                  Delete
+                </button>
               </td>
             </tr>
           ))}
