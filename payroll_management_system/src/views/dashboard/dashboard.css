@@ -1,0 +1,191 @@
+/* General Dashboard Container */
+.dashboard {
+  padding: 20px;
+  background-color: #f0f2f5; /* Light gray background to differentiate from white cards */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Summary Cards Section */
+.dashboard-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive columns */
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.card {
+  background-color: #ffffff;
+  padding: 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Stronger shadow for depth */
+  text-align: center;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333333;
+}
+
+.card p {
+  font-size: 24px;
+  color: #007bff;
+  font-weight: 500;
+}
+
+/* Charts Section */
+.dashboard-charts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive columns */
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.chart-card {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+}
+
+.chart-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.chart-card h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333333;
+}
+
+.chart-placeholder {
+  background-color: #e9ecef; /* Lighter gray for chart placeholder */
+  height: 200px; /* Adjust height as needed */
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #999999;
+  font-size: 16px;
+}
+
+/* Recent Activities Section */
+.recent-activities {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.recent-activities h3 {
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333333;
+}
+
+.recent-activities ul {
+  list-style: none;
+  padding: 0;
+}
+
+.recent-activities li {
+  padding: 12px 0;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 16px;
+  color: #666666;
+}
+
+.recent-activities li:last-child {
+  border-bottom: none;
+}
+
+.recent-activities li:hover {
+  color: #007bff;
+  cursor: pointer;
+}
+
+/* Sidebar */
+.sidebar {
+  background-color: #fef9f2; /* Dark sidebar for contrast */
+  color: #ffffff;
+  padding: 20px;
+}
+
+.sidebar a {
+  color: #adb5bd; /* Light gray for links */
+  font-size: 16px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.sidebar a:hover {
+  color: #ffffff; /* White on hover */
+}
+
+/* Breadcrumb (Home / Dashboard) */
+.breadcrumb {
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #000000;
+}
+
+.breadcrumb a {
+  color: #f3c623;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+/* Page Title */
+.page-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #f86b6b;
+  margin-bottom: 20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .dashboard-summary {
+    grid-template-columns: repeat(2, 1fr); /* 2 cards in a row for smaller screens */
+  }
+
+  .dashboard-charts {
+    grid-template-columns: 1fr; /* 1 chart per row on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .card h3,
+  .card p {
+    font-size: 14px; /* Smaller text for mobile */
+  }
+
+  .chart-card h3 {
+    font-size: 16px; /* Smaller title for charts */
+  }
+
+  .chart-placeholder {
+    height: 150px; /* Adjust height for smaller screens */
+  }
+}
